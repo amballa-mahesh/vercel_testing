@@ -37,6 +37,3 @@ def submit():
     return redirect(back)
 
 
-
-if __name__== '__main__':
-    app.run(debug=True)
