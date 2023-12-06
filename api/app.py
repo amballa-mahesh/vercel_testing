@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def welcome_user():
-    return render_template('index.html')
+    return render_template('home.html')
 
 
 @app.route('/submit', methods = ['POST','GET'])
@@ -32,7 +32,7 @@ def submit():
         output = query_image(path)
         caption = output[0]['generated_text']      
         print(caption)  
-        return render_template('index.html',img_path = path,result = caption)
+        return render_template('home.html',img_path = path,result = caption)
     
     return redirect(back)
 
