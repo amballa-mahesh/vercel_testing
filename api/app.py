@@ -29,10 +29,10 @@ def submit():
         img = plt.imread(img)
         # path = os.path.join('static/images/img_new.jpg')        
         # plt.imsave(path,img)        
-        output = query_image(img)
-        caption = output[0]['generated_text']      
+        # output = query_image(img)
+        # caption = output[0]['generated_text']      
         
-        # caption = 'trail caption'
+        caption = 'trail caption'
         print(caption)  
     return render_template('home.html',img_path ='samplepath', result = caption)
     
