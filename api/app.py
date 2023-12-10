@@ -13,7 +13,7 @@ def query_image(filename):
 
 
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder="./static")
 
 @app.route('/')
 def welcome_user():
@@ -24,11 +24,14 @@ def welcome_user():
 def submit():
     
     if request.method == 'POST':
-        img  = request.files['img']       
-        output = query_image(img)
+        img = plt.imread(img)
+        path = os.path.join('static/images/img_new.jpg')        
+        plt.imsave(path,img)        
+        output = query_image(path)
         caption = output[0]['generated_text']      
-
         print(caption)  
+        return render_template('index.html',img_path = path,result = caption)
+    
     return render_template('home.html', result = caption)
     
     
