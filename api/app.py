@@ -25,7 +25,7 @@ def submit():
     
     if request.method == 'POST':
         img  = request.files['img'] 
-        img = plt.imread(img)
+        # img = plt.imread(img)
         # path = os.path.join('static/images/img_new.jpg')        
         # plt.imsave(path,img)        
         output = query_image(img)
