@@ -1,7 +1,6 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/api/app" },
-    { "source": "/static/**","use": "@vercel/static"}
+    { "source": "/(.*)", "destination": "/api/app" }
   ]
 }
  
