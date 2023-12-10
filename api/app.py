@@ -33,7 +33,7 @@ def submit():
         
         # caption = 'trail caption'
         print(caption)  
-    return render_template('home.html',img_path ='samplepath', result = caption)
+    return render_template('home.html',img_path =img, result = caption)
     
     
 
