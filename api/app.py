@@ -31,7 +31,7 @@ def submit():
         output = query_image(img)
         caption = output[0]['generated_text']      
         
-        caption = 'trail caption'
+        # caption = 'trail caption'
         print(caption)  
     return render_template('home.html',img_path ='samplepath', result = caption)
     
