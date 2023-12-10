@@ -13,7 +13,7 @@ def query_image(filename):
 
 
 
-app = Flask(__name__,static_folder="./static")
+app = Flask(__name__)
 
 @app.route('/')
 def welcome_user():
