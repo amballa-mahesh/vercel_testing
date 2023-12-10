@@ -25,12 +25,11 @@ def submit():
     
     if request.method == 'POST':
         img = plt.imread(img)
-        path = os.path.join('static/images/img_new.jpg')        
-        plt.imsave(path,img)        
-        output = query_image(path)
+       
+        output = query_image(img)
         caption = output[0]['generated_text']      
         print(caption)  
-        return render_template('index.html',img_path = path,result = caption)
+        return render_template('index.html',result = caption)
     
     return render_template('home.html', result = caption)
     
