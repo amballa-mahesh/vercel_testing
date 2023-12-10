@@ -3,14 +3,14 @@ import matplotlib.pyplot as plt
 import os
 import requests
 
-# API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-large"
-# headers = {"Authorization": "Bearer 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"}
+API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-large"
+headers = {"Authorization": "Bearer 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"}
 
-# def query_image(filename):
-#     with open(filename, "rb") as f:
-#         data = f.read()
-#     response = requests.post(API_URL, headers=headers, data=data)
-#     return response.json()
+def query_image(filename):
+    with open(filename, "rb") as f:
+        data = f.read()
+    response = requests.post(API_URL, headers=headers, data=data)
+    return response.json()
 
 
 
@@ -29,10 +29,10 @@ def submit():
         img = plt.imread(img)
         # path = os.path.join('static/images/img_new.jpg')        
         # plt.imsave(path,img)        
-        # output = query_image(path)
-        # caption = output[0]['generated_text']      
+        output = query_image(path)
+        caption = output[0]['generated_text']      
         
-        caption = 'trail caption'
+        # caption = 'trail caption'
         print(caption)  
     return render_template('home.html',img_path ='samplepath', result = caption)
     
