@@ -7,9 +7,8 @@ API_URL = "https://api-inference.huggingface.co/models/Salesforce/blip-image-cap
 headers = {"Authorization": "Bearer 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"}
 
 def query_image(filename):
-    with open(filename, "rb") as f:
-        data = f.read()
-    response = requests.post(API_URL, headers=headers, data=data)
+    
+    response = requests.post(API_URL, headers=headers, data=filename)
     return response.json()
 
 
@@ -27,10 +26,10 @@ def submit():
     if request.method == 'POST':
         img  = request.files['img'] 
         img = plt.imread(img)
-        path = os.path.join('static/images/img_new.jpg')        
-        plt.imsave(path,img)        
-        # output = query_image(img)
-        # caption = output[0]['generated_text']      
+        # path = os.path.join('static/images/img_new.jpg')        
+        # plt.imsave(path,img)        
+        output = query_image(img)
+        caption = output[0]['generated_text']      
         
         caption = 'trail caption'
         print(caption)  
