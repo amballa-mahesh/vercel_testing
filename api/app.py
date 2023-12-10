@@ -23,19 +23,19 @@ def welcome_user():
 
 @app.route('/submit', methods = ['POST','GET'])
 def submit():
-    back = request.referrer
+    
     if request.method == 'POST':
         img  = request.files['img'] 
-        img = plt.imread(img)
-        path = os.path.join('static/images/img_new.jpg')        
-        plt.imsave(path,img)        
+        # img = plt.imread(img)
+        # path = os.path.join('static/images/img_new.jpg')        
+        # plt.imsave(path,img)        
         # output = query_image(path)
         # caption = output[0]['generated_text']      
         
         caption = 'trail caption'
         print(caption)  
-        return render_template('home.html',img_path = path, result = caption)
+    return render_template('home.html',img_path = 'sample path', result = caption)
     
-    return redirect(back)
+    
 
 
