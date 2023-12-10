@@ -24,13 +24,11 @@ def welcome_user():
 def submit():
     
     if request.method == 'POST':
-        img = plt.imread(img)
-       
+        img  = request.files['img']       
         output = query_image(img)
         caption = output[0]['generated_text']      
+
         print(caption)  
-        return render_template('index.html',result = caption)
-    
     return render_template('home.html', result = caption)
     
     
