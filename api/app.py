@@ -24,14 +24,10 @@ def welcome_user():
 def submit():
     
     if request.method == 'POST':
-        img  = request.files['img'] 
-        # img = plt.imread(img)
-        # path = os.path.join('static/images/img_new.jpg')        
-        # plt.imsave(path,img)        
+        img  = request.files['img']       
         output = query_image(img)
         caption = output[0]['generated_text']      
-        
-        # caption = 'trail caption'
+
         print(caption)  
     return render_template('home.html',img_path =img, result = caption)
     
