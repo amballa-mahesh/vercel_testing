@@ -29,7 +29,7 @@ def submit():
         caption = output[0]['generated_text']      
 
         print(caption)  
-    return render_template('home.html',img_path =img, result = caption)
+    return render_template('home.html', result = caption)
     
     
 
